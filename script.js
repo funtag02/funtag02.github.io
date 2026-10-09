@@ -11,7 +11,7 @@ const theoOsPhases = [
       { title: "ELF and binary inspection", deliverable: "objdump, readelf, nm, and size documented in docs/architecture.md." },
     ],
     doneWhen: "The toolchain compiles, links, and produces a correct ELF, and every Makefile flag is understood and documented.",
-    notes: ["TODO(theo): Add links to phase documentation, photos, or videos."],
+    // notes: ["TODO(theo): Add links to phase documentation, photos, or videos."],
   },
   {
     number: 2,
@@ -27,7 +27,7 @@ const theoOsPhases = [
       { title: "ARM call stack and Thumb-2 notes", deliverable: "Exception entry/exit and MSP vs PSP documented." },
     ],
     doneWhen: "The board boots from custom startup code, the LED blinks, UART prints, and SysTick fires.",
-    notes: ["TODO(theo): Add links to phase documentation, board photos, or demo videos."],
+    // notes: ["TODO(theo): Add links to phase documentation, board photos, or demo videos."],
   },
   {
     number: 3,
@@ -44,7 +44,7 @@ const theoOsPhases = [
       { title: "Semaphore", deliverable: "Task synchronization through semaphores." },
     ],
     doneWhen: "Several tasks run, the scheduler switches between them, and a mutex prevents concurrent access.",
-    notes: ["TODO(theo): Add links to phase documentation, photos, or videos."],
+    // notes: ["TODO(theo): Add links to phase documentation, photos, or videos."],
   },
   {
     number: 4,
@@ -61,7 +61,7 @@ const theoOsPhases = [
       { title: "UART shell", deliverable: "Runtime commands for tasks, mem, and regs." },
     ],
     doneWhen: "Drivers are abstracted, tasks communicate through queues and events, timers fire on schedule, and the shell gives runtime visibility.",
-    notes: ["TODO(theo): Add links to phase documentation, photos, or videos."],
+    // notes: ["TODO(theo): Add links to phase documentation, photos, or videos."],
   },
   {
     number: 5,
@@ -75,7 +75,7 @@ const theoOsPhases = [
       { title: "Demo video and technical write-up", deliverable: "At least one public technical artifact." },
     ],
     doneWhen: "The application runs stably, the docs let a stranger build and understand the OS, and at least one public technical artifact exists.",
-    notes: ["TODO(theo): Add links to project documentation, demo videos, or the technical write-up."],
+    // notes: ["TODO(theo): Add links to project documentation, demo videos, or the technical write-up."],
   },
 ];
 
@@ -240,6 +240,7 @@ function initializeTheoOsRoadmap() {
       outcome.className = "roadmap-outcome";
       outcome.textContent = phase.doneWhen;
 
+      /*
       const notesHeading = document.createElement("h5");
       notesHeading.textContent = "Notes and results";
       const notes = document.createElement("ul");
@@ -249,9 +250,10 @@ function initializeTheoOsRoadmap() {
         item.textContent = note;
         notes.append(item);
       });
+      */
 
       roadmapPanel.setAttribute("aria-labelledby", phaseTabs[index].id);
-      roadmapPanel.replaceChildren(title, goal, tasksHeading, taskList, doneHeading, outcome, notesHeading, notes);
+      roadmapPanel.replaceChildren(title, goal, tasksHeading, taskList, doneHeading, outcome);
       roadmapCurrentPhase.textContent = `Phase ${phase.number} of ${theoOsPhases.length}`;
       roadmapPrevious.disabled = index === 0;
       roadmapNext.disabled = index === theoOsPhases.length - 1;

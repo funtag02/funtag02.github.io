@@ -193,7 +193,7 @@ h1 em { color: var(--acid); }
 .roadmap-stepper { position: relative; display: flex; margin: 28px 0 22px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-color: #64748b #161b22; }
 .roadmap-stepper::before { content: ""; position: absolute; top: 22px; left: 4.5rem; width: var(--roadmap-track-width); height: 2px; background: linear-gradient(to right, var(--acid) 0 var(--roadmap-progress), #4b5563 var(--roadmap-progress) 100%); }
 .roadmap-tab { position: relative; z-index: 1; flex: 0 0 9rem; min-width: 9rem; min-height: 128px; padding: 0 8px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; border: 0; background: transparent; color: var(--ink); font: var(--text-base)/1.35 var(--body); text-align: center; cursor: pointer; scroll-snap-align: center; }
-.roadmap-number { width: 44px; height: 44px; display: grid; place-items: center; border: 2px solid #83909d; border-radius: 50%; background: #161b22; color: #ecf8ff; font: 600 var(--text-sm) var(--mono); }
+.roadmap-number { min-width: 76px; height: 48px; padding: 0 10px; display: grid; place-items: center; border: 2px solid #83909d; border-radius: 999px; background: #161b22; color: #ecf8ff; font: 600 var(--text-sm) var(--mono); white-space: nowrap; }
 .roadmap-tab[aria-selected="true"] .roadmap-number { border-color: var(--acid); background: #12333a; color: #7bf2f8; }
 .roadmap-phase-name { max-width: 100%; font-weight: 700; }
 .roadmap-status { color: #d0d8e0; font-size: var(--text-sm); }
@@ -238,28 +238,31 @@ h1 em { color: var(--acid); }
 .honesty-note strong { color: var(--ink); }
 
 .timeline-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 110px; margin-bottom: 24px; font: var(--text-sm) var(--mono); color: var(--muted); }
-.timeline-legend span:first-child { text-align: right; color: var(--acid); }
-.timeline-legend span:last-child { color: var(--orange); }
+.timeline-legend span:first-child { text-align: right; color: var(--orange); }
+.timeline-legend span:last-child { color: var(--acid); }
 .scaled-timeline { --brand-logo-width: 92px; display: grid; grid-template-columns: minmax(0, 1fr) 110px minmax(0, 1fr); align-items: stretch; }
 .scaled-lane { display: grid; grid-template-rows: repeat(60, 18px); min-width: 0; }
 .scaled-lane-work { grid-column: 1; }
 .scaled-lane-education { grid-column: 3; }
 .duration-block { position: relative; grid-row: var(--start) / span var(--span); min-width: 0; margin: 2px 0; padding: 16px 18px; overflow: hidden; border: 1px solid var(--line); background: rgba(13, 17, 23, .78); }
-.duration-work, .duration-amadeus { text-align: right; border-right-color: rgba(40, 215, 229, .55); }
-.duration-education { border-left-color: rgba(208, 92, 255, .55); }
+.duration-work, .duration-amadeus { text-align: right; border-right-color: rgba(208, 92, 255, .65); }
+.duration-education { border-left-color: rgba(40, 215, 229, .65); }
 .duration-block time { display: block; margin-bottom: 7px; color: #b3a0ff; font: var(--text-sm) var(--mono); }
 .duration-block h3 { margin: 0 0 6px; color: var(--ink); font: 600 var(--heading-sm)/1.25 var(--display); }
 .duration-block p { margin: 0; color: #b5c1cb; font-size: var(--text-base); }
-.experience-org { color: #42e7f2 !important; font: var(--text-base)/1.45 var(--mono); }
+.experience-org { color: #D05CFF !important; font: var(--text-base)/1.45 var(--mono); }
+.duration-amadeus h3 { color: #b5c1cb; }
+.school-affiliation { color: #42e7f2 !important; }
 .experience-trigger { cursor: pointer; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; transform-origin: center; }
 .experience-trigger:hover, .experience-trigger:focus-visible { z-index: 4; border-color: var(--acid); box-shadow: 0 8px 30px rgba(40, 215, 229, .14), 3px 3px 0 var(--acid); transform: translate(-3px, -3px) scale(1.012); outline: none; }
 .experience-trigger:focus-visible { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--acid), 3px 3px 0 var(--acid); }
 .brand-logo { position: absolute; z-index: 1; width: var(--brand-logo-width); height: auto; object-fit: contain; }
 .scaled-lane-work .brand-logo { top: 14px; left: 16px; }
 .scaled-lane-education .brand-logo { top: 14px; right: 16px; }
-.brand-amadeus { border-right-color: #00a9e0; background: linear-gradient(135deg, rgba(0, 94, 184, .12), rgba(13, 17, 23, .78) 46%); }
+.brand-amadeus { border-right-color: rgba(208, 92, 255, .8); background: linear-gradient(135deg, rgba(208, 92, 255, .12), rgba(13, 17, 23, .78) 46%); }
 .brand-infotel { border-right-color: #0079bd; background: linear-gradient(135deg, rgba(0, 121, 189, .12), rgba(13, 17, 23, .78) 46%); }
 .duration-infotel { background: rgba(13, 17, 23, .68); border-right-color: rgba(0, 121, 189, .68); }
+.duration-infotel h3 { color: #b5c1cb; }
 .infotel-internship-note { margin-top: 8px !important; color: #b5c1cb !important; font-size: var(--text-base) !important; }
 .duration-work.brand-infotel:not(.duration-compact) { padding-left: 124px; }
 .brand-uca { padding-right: 124px; border-left-color: #00a8d2; background: rgba(13, 17, 23, .78); }
@@ -330,10 +333,10 @@ footer { background: var(--paper); color: var(--muted); border-top: 1px solid va
   .scaled-axis { display: none; }
   .scaled-lane { display: flex; flex-direction: column; gap: 10px; }
   .scaled-lane::before { margin: 16px 0 5px; font: var(--text-sm) var(--mono); }
-  .scaled-lane-work::before { content: "Professional experience"; color: var(--acid); }
-  .scaled-lane-education::before { content: "Education"; color: var(--orange); }
+  .scaled-lane-work::before { content: "Professional experience"; color: var(--orange); }
+  .scaled-lane-education::before { content: "Education"; color: var(--acid); }
   .duration-block { min-height: 0; margin: 0; padding: 16px; text-align: left; overflow: visible; }
-  .duration-work, .duration-amadeus { border-left-color: rgba(40, 215, 229, .55); border-right-color: var(--line); }
+  .duration-work, .duration-amadeus { border-left-color: rgba(208, 92, 255, .65); border-right-color: var(--line); }
   .duration-amadeus { display: block; }
   .duration-content { padding: 0 118px 0 0; }
   .duration-cut { margin: 14px -16px -16px; min-height: 48px; }
