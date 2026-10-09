@@ -257,6 +257,8 @@ h1 em { color: var(--acid); }
 .scaled-lane-education .brand-logo { top: 14px; right: 16px; }
 .brand-amadeus { border-right-color: #00a9e0; background: linear-gradient(135deg, rgba(0, 94, 184, .12), rgba(13, 17, 23, .78) 46%); }
 .brand-infotel { border-right-color: #0079bd; background: linear-gradient(135deg, rgba(0, 121, 189, .12), rgba(13, 17, 23, .78) 46%); }
+.duration-infotel { background: rgba(13, 17, 23, .68); border-right-color: rgba(0, 121, 189, .68); }
+.infotel-internship-note { margin-top: 8px !important; color: #b5c1cb !important; font-size: var(--text-sm) !important; }
 .duration-work.brand-infotel:not(.duration-compact) { padding-left: 124px; }
 .brand-uca { padding-right: 124px; border-left-color: #00a8d2; background: rgba(13, 17, 23, .78); }
 .brand-iut { padding-right: 124px; border-left-color: #00a8d2; background: rgba(13, 17, 23, .78); }

@@ -272,31 +272,22 @@ const experienceDetails = {
     title: "Apprenticeship · C++ Software Development",
     organization: "Amadeus · Sophia Antipolis, France (06)",
     details: [
-      "Maintenance of large-scale microservices backends within the Hotel Distribution department.",
-      "Built a Python log visualization tool to accelerate code flow analysis across a large codebase.",
-      "Contributed to a Kafka BI monitoring migration from a legacy component to a new one.",
+      "Maintained high-performance C++ backend microservices for distributed systems.",
+      "Optimized legacy C++ code for memory management and low-latency execution.",
+      "Built a Python log analysis tool to visualize complex execution flows.",
+      "Diagnosed and resolved critical production incidents across large codebases.",
+      "Designed automated unit and regression tests to guarantee system stability.",
+      "Wrote up bugfixes and communicated post-mortems to clients.",
     ],
   },
-  "infotel-apprenticeship": {
-    date: "August 2023 — August 2024",
-    title: "Apprenticeship · Fullstack Development",
+  infotel: {
+    date: "April 2023 — August 2024",
+    title: "Fullstack developer, Infotel Conseil",
     organization: "Infotel Conseil · Sophia Antipolis, France (06)",
     details: [
-      "Advanced the development of a recruitment management web application.",
-      "Implemented integration and regression testing.",
-      "Improved API response times.",
-      "Redesigned the user interface based on Figma mockups.",
-      "Integrated MSAL for OAuth2-based authentication.",
-    ],
-  },
-  "infotel-internship": {
-    date: "April 2023 — July 2023",
-    title: "Internship · Fullstack Development",
-    organization: "Infotel Conseil · Sophia Antipolis, France (06)",
-    details: [
-      "Developed a web application to streamline recruitment process management for the agency.",
-      "Technologies: Spring 6 and Angular 17.",
-      "Worked in an Agile Scrum team.",
+      "Optimized REST API response times and database query performance.",
+      "Implemented integration and regression test suites.",
+      "Integrated MSAL and OAuth2 authentication.",
     ],
   },
 };
