@@ -132,10 +132,6 @@ h1 em { color: var(--acid); }
 .status-console dt { color: #a9b9c8; font: 10px var(--mono); text-transform: none; }
 .status-console dd { margin: 0; color: #cfdeea; font: 12px/1.5 var(--body); }
 .status-console code { color: var(--acid); font: inherit; }
-.console-progress { height: 4px; background: #111d29; overflow: hidden; }
-.console-progress span { display: block; width: var(--progress); height: 100%; background: linear-gradient(90deg, var(--blue), var(--acid)); box-shadow: 0 0 10px var(--acid); }
-.status-console > p { margin: 12px 0 0; color: #71899e; font: 8px var(--mono); }
-.status-console > p span { color: var(--acid); }
 .profile-strip { background: rgba(8, 11, 16, .82); border-top: 1px solid var(--line); }
 .profile-strip > span { width: 38px; height: 42px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 1px solid rgba(40, 215, 229, .45); background: rgba(40, 215, 229, .08); color: var(--acid); }
 .profile-marker svg { width: 18px; height: 18px; }
@@ -166,9 +162,16 @@ h1 em { color: var(--acid); }
 .project-body h3, .project-card h3 { font-size: clamp(23px, 2.5vw, 34px); text-transform: none; }
 .project-body > p:last-of-type, .project-card > p { color: var(--muted); }
 .project-facts svg { color: var(--acid); }
+.impact-placeholders { margin: 22px 0 0; padding-left: 20px; color: #b5c1cb; font-size: 14px; }
+.impact-placeholders li + li { margin-top: 6px; }
 .project-stack span { border-color: var(--line); color: var(--muted); background: #161b22; border-radius: 3px; }
 .project-card { border-color: var(--acid); background: rgba(13, 17, 23, .84); }
 .project-grid .project-card:nth-child(2) { border-top: 0; border-left: 3px solid var(--blue); background: rgba(13, 17, 23, .7); }
+.project-media-placeholder { min-height: 132px; margin: 24px 0; display: grid; place-content: center; gap: 8px; border: 1px dashed rgba(185, 168, 255, .55); background: rgba(8, 11, 16, .48); color: #b5c1cb; text-align: center; }
+.project-media-placeholder div { font-size: 14px; }
+.project-media-placeholder figcaption { font: 11px/1.5 var(--mono); color: #b9a8ff; }
+.other-work { margin: 30px 0 0; padding-top: 18px; border-top: 1px solid var(--line); color: #b5c1cb; font-size: 14px; }
+.other-work strong { color: var(--ink); }
 .evidence-list { border-color: var(--line); }
 .evidence-list div { border-color: var(--line); }
 .evidence-list dt { color: var(--blue); font-size: 11px; text-transform: none; }
