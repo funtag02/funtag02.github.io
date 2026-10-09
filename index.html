@@ -87,6 +87,7 @@
                 <div><dt>Done</dt><dd>Toolchain, linker script, ELF inspection</dd></div>
                 <div><dt>Current</dt><dd>Startup code and vector table</dd></div>
               </dl>
+              <a class="roadmap-hero-link" href="#theoos-roadmap">Phase 2 of 5, explore the roadmap</a>
             </article>
             <article id="panel-luminasnake" class="status-console" role="tabpanel" aria-labelledby="tab-luminasnake" tabindex="0" data-panel="luminasnake" hidden>
               <div class="console-title">
@@ -203,8 +204,7 @@
               <div><dt>Done</dt><dd>Toolchain, linker script, ELF inspection</dd></div>
               <div><dt>Current</dt><dd>Startup code and vector table</dd></div>
             </dl>
-            <!-- TODO(theo): Replace this profile link with the exact TheoOS repository URL and confirm the repository is public. -->
-            <a class="text-link" href="https://github.com/funtag02?tab=repositories" target="_blank" rel="noopener">Browse my GitHub repositories <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+            <p class="source-availability">Source code available on request. <span>TODO(theo): Confirm this wording.</span></p>
           </article>
 
           <article class="project-card project-card-wide reveal">
@@ -222,6 +222,20 @@
             <div class="project-stack"><span>Python</span><span>Picamera2</span><span>libcamera</span><span>OpenCV</span><span>YOLO</span><span>OCR</span></div>
           </article>
         </div>
+        <section class="roadmap-section" id="theoos-roadmap" aria-labelledby="theoos-roadmap-title">
+          <header class="roadmap-heading">
+            <p class="section-index">TheoOS</p>
+            <h3 id="theoos-roadmap-title">Explore the roadmap</h3>
+            <p class="roadmap-hint" id="roadmap-hint">Select a phase to see its goals and deliverables.</p>
+          </header>
+          <div class="roadmap-stepper" id="roadmap-stepper" role="tablist" aria-label="TheoOS phases" aria-describedby="roadmap-hint"></div>
+          <div class="roadmap-panel" id="roadmap-panel" role="tabpanel" tabindex="0" aria-live="polite"></div>
+          <div class="roadmap-controls">
+            <button class="roadmap-control" id="roadmap-previous" type="button">Previous</button>
+            <span id="roadmap-current-phase" aria-live="polite"></span>
+            <button class="roadmap-control" id="roadmap-next" type="button">Next</button>
+          </div>
+        </section>
         <p class="other-work"><strong>Other work:</strong> Multi-agent music generation with Google ADK.</p>
       </section>
 
