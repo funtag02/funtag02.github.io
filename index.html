@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -26,17 +26,16 @@
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="Back to top">
         <span>TL</span>
-        <strong>SOFTWARE / EMBEDDED</strong>
+        <strong>Software / Embedded</strong>
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
         <i data-lucide="menu" aria-hidden="true"></i>
         <span class="sr-only">Open navigation</span>
       </button>
       <nav id="site-nav" aria-label="Primary navigation">
-        <a href="#work">Work</a>
-        <a href="#journey">Journey</a>
-        <!-- <a class="nav-contact" href="mailto:theo.lahmar1@gmail.com">Contact</a> -->
-         <a class="nav-contact" href="#contact">Contact</a>
+        <a href="#work">Projects</a>
+        <a href="#journey">Experience</a>
+        <a class="nav-contact" href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -69,7 +68,7 @@
         <div class="hero-visual reveal delay-1" aria-label="Overview of current personal projects">
           <div class="system-scene">
             <div class="scene-header">
-              <span><i data-lucide="radio" aria-hidden="true"></i> BUILD_STATUS</span>
+              <span><i data-lucide="radio" aria-hidden="true"></i> Project snapshot</span>
               <span class="scene-live">AUG 2026</span>
             </div>
             <div class="project-switcher" role="tablist" aria-label="Current projects">
@@ -127,8 +126,8 @@
 
       <section class="section work-section" id="work">
         <header class="section-heading reveal">
-          <p class="section-index">SELECTED WORK</p>
-          <h2>work_<wbr>and_<wbr>projects</h2>
+          <p class="section-index">Projects</p>
+          <h2>Projects</h2>
           <p>Professional experience and personal projects, with their current progress.</p>
         </header>
 
@@ -138,7 +137,7 @@
             <span>2024—2026</span>
           </div>
           <div class="project-body">
-            <p class="project-kicker">AMADEUS · APPRENTICESHIP</p>
+            <p class="project-kicker">Amadeus · Apprenticeship</p>
             <h3>C++ backend development</h3>
             <p>
               C++ backend development as part of a work-study program at Amadeus.
@@ -158,7 +157,7 @@
             <div class="project-card-top">
               <span class="maturity maturity-design">In progress · 80%</span>
             </div>
-            <p class="project-kicker">LUMINASNAKE · ESP32</p>
+            <p class="project-kicker">LuminaSnake · ESP32</p>
             <h3>Music-reactive ambient light</h3>
             <p>
               An ESP32 project that drives four WS2812B LED strips from audio captured with an
@@ -176,7 +175,7 @@
             <div class="project-card-top">
               <span class="maturity maturity-learning">In progress · 5%</span>
             </div>
-            <p class="project-kicker">THEOOS · STM32H750B-DK</p>
+            <p class="project-kicker">TheoOS · STM32H750B-DK</p>
             <h3>Understanding startup from source</h3>
             <p>
               A learning project on the STM32H750B-DK to understand ARM startup, linking and
@@ -195,7 +194,7 @@
               <span class="maturity maturity-learning">Migration in progress</span>
             </div>
             <div>
-              <p class="project-kicker">SMART DASHCAM · RASPBERRY PI</p>
+              <p class="project-kicker">Smart dashcam · Raspberry Pi</p>
               <h3>Computer vision at the edge</h3>
             </div>
             <p>
@@ -209,12 +208,12 @@
 
       <section class="section journey-section" id="journey">
         <header class="section-heading reveal">
-          <p class="section-index">JOURNEY</p>
-          <h2>experience_<wbr>and_<wbr>education</h2>
+          <p class="section-index">Experience</p>
+          <h2>Experience and education</h2>
         </header>
         <div class="timeline-legend reveal" aria-hidden="true">
-          <span>professional_experience</span>
-          <span>education</span>
+          <span>Professional experience</span>
+          <span>Education</span>
         </div>
         <div class="scaled-timeline">
           <div class="scaled-lane scaled-lane-work">
@@ -292,8 +291,8 @@
 
       <section class="contact-section" id="contact">
         <div>
-          <p class="section-index">CONTACT</p>
-          <h2>stay_in_touch_:)</h2>
+          <p class="section-index">Contact</p>
+          <h2>Contact</h2>
         </div>
         <div class="contact-actions">
           <a href="mailto:theo.lahmar1@gmail.com">theo.lahmar1@gmail.com <i data-lucide="arrow-up-right"></i></a>
@@ -305,7 +304,7 @@
 
     <dialog class="experience-dialog" id="experience-dialog" aria-labelledby="experience-dialog-title">
       <div class="dialog-header">
-        <p class="dialog-label">experience_details</p>
+        <p class="dialog-label">Experience details</p>
         <button class="dialog-close" type="button" aria-label="Close experience details">
           <i data-lucide="x" aria-hidden="true"></i>
         </button>
@@ -318,6 +317,6 @@
       </div>
     </dialog>
 
-    <footer><span>Théo Lahmar · 2026</span><span>while (curious) { keep_building(); }</span></footer>
+    <footer><span>Théo Lahmar · 2026</span><span>Embedded software · C++ · Applied AI</span></footer>
   </body>
 </html>
