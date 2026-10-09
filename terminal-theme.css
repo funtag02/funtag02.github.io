@@ -183,10 +183,10 @@ h1 em { color: var(--acid); }
 .project-grid .project-card:nth-child(2) { border-top: 0; border-left: 3px solid var(--blue); background: rgba(13, 17, 23, .7); }
 .project-media-placeholder { min-height: 132px; margin: 24px 0; display: grid; place-content: center; gap: 8px; border: 1px dashed rgba(185, 168, 255, .55); background: rgba(8, 11, 16, .48); color: #b5c1cb; text-align: center; }
 .project-media-placeholder div { font-size: var(--text-base); }
-.project-media-placeholder figcaption { font: var(--text-sm)/1.5 var(--mono); color: #c7baff; }
-.source-availability { margin: 20px 0 0; color: #b5c1cb; font-size: var(--text-sm); }
+.project-media-placeholder figcaption { font: var(--text-base)/1.5 var(--mono); color: #c7baff; }
+.source-availability { margin: 20px 0 0; color: #b5c1cb; font-size: var(--text-base); }
 .source-availability span { color: #c7baff; }
-.roadmap-hero-link { display: inline-block; margin-top: 14px; color: #61eaf2; font-size: var(--text-sm); text-underline-offset: 4px; }
+.roadmap-hero-link { display: inline-block; margin-top: 14px; color: #61eaf2; font-size: var(--text-base); text-underline-offset: 4px; }
 .roadmap-section { margin-top: 72px; padding: 32px; border: 1px solid var(--line); background: rgba(13, 17, 23, .88); }
 .roadmap-heading { max-width: 70ch; }
 .roadmap-heading h3 { margin: 8px 0; font-size: var(--heading-md); line-height: 1.2; }
@@ -258,7 +258,7 @@ h1 em { color: var(--acid); }
 .brand-amadeus { border-right-color: #00a9e0; background: linear-gradient(135deg, rgba(0, 94, 184, .12), rgba(13, 17, 23, .78) 46%); }
 .brand-infotel { border-right-color: #0079bd; background: linear-gradient(135deg, rgba(0, 121, 189, .12), rgba(13, 17, 23, .78) 46%); }
 .duration-infotel { background: rgba(13, 17, 23, .68); border-right-color: rgba(0, 121, 189, .68); }
-.infotel-internship-note { margin-top: 8px !important; color: #b5c1cb !important; font-size: var(--text-sm) !important; }
+.infotel-internship-note { margin-top: 8px !important; color: #b5c1cb !important; font-size: var(--text-base) !important; }
 .duration-work.brand-infotel:not(.duration-compact) { padding-left: 124px; }
 .brand-uca { padding-right: 124px; border-left-color: #00a8d2; background: rgba(13, 17, 23, .78); }
 .brand-iut { padding-right: 124px; border-left-color: #00a8d2; background: rgba(13, 17, 23, .78); }
@@ -273,7 +273,7 @@ h1 em { color: var(--acid); }
 .duration-internship .brand-logo-infotel { top: 14px; left: 14px; }
 .duration-exchange { padding: 8px 12px; border-color: #e30513; border-left: 5px solid #ffc103; background: linear-gradient(115deg, #050505 0 70%, rgba(227, 5, 19, .24)); box-shadow: inset 3px 0 0 #e30513; }
 .duration-exchange time { margin-bottom: 3px; padding-right: 108px; color: #ffd45c; font-size: var(--text-sm); }
-.duration-exchange h3 { max-width: calc(100% - 102px); color: #fff; font-size: var(--text-sm); }
+.duration-exchange h3 { max-width: calc(100% - 102px); color: #fff; font-size: var(--text-base); }
 .ulaval-logo { position: absolute; top: 8px; right: 10px; width: 88px; height: 36px; padding: 3px 5px; background: #ffc103; object-fit: contain; }
 .scaled-axis { position: relative; grid-column: 2; grid-row: 1; }
 .scaled-axis::before { content: ""; position: absolute; inset-block: 0; left: 50%; width: 1px; background: linear-gradient(180deg, var(--acid), var(--blue) 45%, var(--orange)); box-shadow: 0 0 12px rgba(40, 215, 229, .3); }
@@ -306,6 +306,10 @@ h1 em { color: var(--acid); }
 .contact-actions a { border-color: var(--line); color: var(--muted); transition: color .2s, padding .2s; }
 .contact-actions a:hover { color: var(--acid); }
 footer { background: var(--paper); color: var(--muted); border-top: 1px solid var(--line); }
+
+@media (max-width: 850px) {
+  .profile-strip { grid-template-columns: 38px minmax(0, 1fr); }
+}
 
 @media (max-width: 760px) {
   .site-header nav { background: rgba(8, 11, 16, .98); border-color: var(--line); }

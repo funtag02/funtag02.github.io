@@ -31,7 +31,7 @@ svg { width: 1.05em; height: 1.05em; stroke-width: 1.8; }
 .site-header nav a { font-family: var(--mono); font-size: var(--text-base); text-decoration: none; }
 .site-header nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .site-header .nav-contact { background: var(--ink); color: var(--white); padding: 10px 16px; }
-.menu-button { display: none; border: 0; background: none; color: var(--ink); padding: 8px; }
+.menu-button { display: none; border: 0; background: none; color: var(--ink); padding: 8px; font: var(--text-base)/1.5 var(--body); }
 
 .hero { min-height: calc(100vh - 72px); max-height: 920px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); border-bottom: 1px solid var(--ink); }
 .hero-copy { display: flex; flex-direction: column; justify-content: center; padding: 7vh clamp(24px, 7vw, 112px); border-right: 1px solid var(--ink); }
@@ -174,7 +174,10 @@ footer { min-height: 70px; display: flex; justify-content: space-between; align-
 
 @media (max-width: 390px) {
   h1 { font-size: var(--heading-hero); }
-  .hero-actions { flex-direction: column; }
+  .hero-copy { padding-top: 28px; }
+  .eyebrow { margin-bottom: 26px; }
+  .hero-role { margin-top: 18px; }
+  .hero-actions { flex-direction: column; margin-top: 14px; }
   .button { width: 100%; }
   .hero-visual { min-height: 520px; }
   .proof-bar { grid-template-columns: 1fr; }
