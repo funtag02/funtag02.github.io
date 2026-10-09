@@ -122,7 +122,11 @@ footer { min-height: 70px; display: flex; justify-content: space-between; align-
 .hero .reveal { animation: enter .6s ease both; }
 .hero .delay-1 { animation-delay: .08s; }
 @keyframes enter { from { opacity: 0; transform: translateY(18px); } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hero .reveal { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero .reveal, .experience-dialog[open] { animation: none; }
+  .experience-trigger, .button, .contact-actions a { transition: none; }
+}
 
 @media (max-width: 1050px) {
   .hero { grid-template-columns: 1fr 42%; }
@@ -143,10 +147,11 @@ footer { min-height: 70px; display: flex; justify-content: space-between; align-
   .site-header nav a { padding: 13px 0; border-bottom: 1px solid var(--line); }
   .site-header .nav-contact { margin-top: 12px; padding: 12px; text-align: center; }
   .hero { min-height: auto; max-height: none; grid-template-columns: 1fr; }
-  .hero-copy { min-height: calc(100svh - 62px); padding: 60px 20px 44px; border-right: 0; }
+  .hero-copy { min-height: calc(100svh - 62px); padding: 40px 20px 22px; border-right: 0; }
   h1 { font-size: clamp(76px, 27vw, 112px); }
   .hero-role { margin-top: 28px; }
   .hero-intro { font-size: 16px; }
+  .hero-actions { margin-top: 20px; }
   .hero-visual { min-height: 600px; border-top: 1px solid var(--ink); }
   .profile-strip { grid-template-columns: 38px 1fr; }
   .proof-bar { grid-template-columns: repeat(2, 1fr); }

@@ -1,15 +1,21 @@
 const menuButton = document.querySelector(".menu-button");
+const menuLabel = menuButton?.querySelector(".sr-only");
 const navigation = document.querySelector("#site-nav");
 
 menuButton?.addEventListener("click", () => {
+  if (!navigation) return;
+
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  navigation?.classList.toggle("is-open", !isOpen);
+  const nextState = !isOpen;
+  menuButton.setAttribute("aria-expanded", String(nextState));
+  if (menuLabel) menuLabel.textContent = nextState ? "Close navigation" : "Open navigation";
+  navigation.classList.toggle("is-open", nextState);
 });
 
 navigation?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     menuButton?.setAttribute("aria-expanded", "false");
+    if (menuLabel) menuLabel.textContent = "Open navigation";
     navigation.classList.remove("is-open");
   });
 });
@@ -18,18 +24,41 @@ const projectTabs = document.querySelectorAll(".project-tab");
 const projectPanels = document.querySelectorAll("[data-panel]");
 
 projectTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
+  function selectTab() {
     const selectedProject = tab.dataset.project;
 
     projectTabs.forEach((candidate) => {
       const isSelected = candidate === tab;
       candidate.classList.toggle("is-active", isSelected);
       candidate.setAttribute("aria-selected", String(isSelected));
+      candidate.tabIndex = isSelected ? 0 : -1;
     });
 
     projectPanels.forEach((panel) => {
-      panel.hidden = panel.dataset.panel !== selectedProject;
+      const isVisible = panel.dataset.panel === selectedProject;
+      panel.hidden = !isVisible;
+      panel.setAttribute("aria-hidden", String(!isVisible));
     });
+  }
+
+  tab.addEventListener("click", () => {
+    selectTab();
+  });
+
+  tab.addEventListener("keydown", (event) => {
+    const currentIndex = Array.from(projectTabs).indexOf(tab);
+    let nextIndex = currentIndex;
+
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % projectTabs.length;
+    else if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + projectTabs.length) % projectTabs.length;
+    else if (event.key === "Home") nextIndex = 0;
+    else if (event.key === "End") nextIndex = projectTabs.length - 1;
+    else return;
+
+    event.preventDefault();
+    const nextTab = projectTabs[nextIndex];
+    nextTab.focus();
+    nextTab.click();
   });
 });
 

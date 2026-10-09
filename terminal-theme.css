@@ -33,6 +33,10 @@ body::before,
 body::after { content: none; }
 
 ::selection { background: var(--acid); color: var(--paper); }
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible, [role="tab"]:focus-visible, [role="tabpanel"]:focus-visible {
+  outline: 2px solid #c7f7ff;
+  outline-offset: 3px;
+}
 
 .page-background {
   position: fixed;
@@ -238,22 +242,21 @@ h1 em { color: var(--acid); }
 .experience-dialog[open] { animation: dialog-enter .2s ease both; }
 @keyframes dialog-enter { from { opacity: 0; transform: translateY(14px) scale(.985); } }
 .dialog-header { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 8px 10px 8px 20px; border-bottom: 1px solid var(--line); background: rgba(7, 18, 31, .96); }
-.dialog-label { margin: 0; color: var(--acid); font: 9px var(--mono); }
-.dialog-label::before { content: "$ open "; color: var(--muted); }
+.dialog-label { margin: 0; color: var(--acid); font: 11px var(--mono); }
+.dialog-label::before { content: none; }
 .dialog-close { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
-.dialog-close:hover, .dialog-close:focus-visible { border-color: var(--acid); color: var(--acid); outline: none; }
+.dialog-close:hover, .dialog-close:focus-visible { border-color: var(--acid); color: var(--acid); }
 .dialog-content { padding: 30px; }
 .dialog-content time { color: var(--blue); font: 10px var(--mono); }
 .dialog-content h2 { margin: 9px 0 8px; color: var(--ink); font: 700 clamp(24px, 4vw, 36px)/1.12 var(--display); }
 .dialog-org { margin: 0; color: var(--acid); font: 10px/1.5 var(--mono); }
-.dialog-content ul { margin: 28px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-.dialog-content li { position: relative; padding: 15px 10px 15px 28px; border-bottom: 1px solid var(--line); color: #b9c5cf; font-size: 13px; }
-.dialog-content li::before { content: ">"; position: absolute; left: 5px; color: var(--acid); font-family: var(--mono); }
+.dialog-content ul { margin: 28px 0 0; padding: 0 0 0 22px; list-style: disc; border-top: 1px solid var(--line); }
+.dialog-content li { position: relative; padding: 15px 10px; border-bottom: 1px solid var(--line); color: #b9c5cf; font-size: 13px; }
 
 .contact-section { background: var(--paper-deep); border-color: var(--line); }
 .contact-section .section-index { color: #d2a8ff; }
 .contact-section h2 { color: var(--ink); }
-.contact-section h2::before { content: "> "; color: var(--acid); }
+.contact-section h2::before { content: none; }
 .contact-actions { border-color: var(--line); }
 .contact-actions a { border-color: var(--line); color: var(--muted); transition: color .2s, padding .2s; }
 .contact-actions a:hover { color: var(--acid); }
@@ -301,5 +304,6 @@ footer { background: var(--paper); color: var(--muted); border-top: 1px solid va
 @media (max-width: 390px) {
   h1 { font-size: 58px; }
   .section-heading h2 { font-size: 38px; }
-  .status-console dl div { grid-template-columns: 78px 1fr; }
+  .status-console dl div { grid-template-columns: 78px minmax(0, 1fr); }
+  .status-console { padding: 16px; }
 }
