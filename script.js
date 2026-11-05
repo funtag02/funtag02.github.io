@@ -174,7 +174,7 @@ function initializeTheoOsRoadmap() {
     status.className = `roadmap-status roadmap-status-${phase.status}`;
     status.textContent = phase.status === "in-progress" ? "In progress" : phase.status === "done" ? "Done" : "Planned";
 
-    tab.append(number, name, status);
+    tab.append(status, number, name);
     tab.addEventListener("click", () => selectPhase(index));
     tab.addEventListener("keydown", (event) => {
       let nextIndex = index;
@@ -267,6 +267,82 @@ function initializeTheoOsRoadmap() {
 }
 
 initializeTheoOsRoadmap();
+
+const demoDialog = document.querySelector("#luminasnake-demo-dialog");
+const demoOpenButton = document.querySelector(".project-demo-open");
+const demoCloseButton = demoDialog?.querySelector(".demo-dialog-close");
+const demoPlayButton = document.querySelector("#demo-play-all");
+const demoPlayStatus = document.querySelector("#demo-play-status");
+const demoVideos = Array.from(document.querySelectorAll(".luminasnake-demo-video"));
+let demoPlaybackRequest = 0;
+
+function updateDemoPlaybackState() {
+  if (!demoPlayButton || !demoPlayStatus || demoVideos.length === 0) return;
+
+  const allPlaying = demoVideos.every((video) => !video.paused && !video.ended);
+  const allPaused = demoVideos.every((video) => video.paused);
+  demoPlayButton.textContent = allPlaying ? "Pause both demos" : "Play both demos";
+  demoPlayStatus.textContent = allPlaying
+    ? "Both demos are playing."
+    : allPaused
+      ? "Each video also has its own native controls."
+      : "One demo is playing. Use the shared button to play both.";
+}
+
+demoOpenButton?.addEventListener("click", () => {
+  if (!demoDialog || demoDialog.open) return;
+  demoDialog.showModal();
+  demoCloseButton?.focus();
+});
+
+demoCloseButton?.addEventListener("click", () => demoDialog?.close());
+demoDialog?.addEventListener("click", (event) => {
+  if (event.target === demoDialog) demoDialog.close();
+});
+demoDialog?.addEventListener("close", () => {
+  demoPlaybackRequest += 1;
+  demoVideos.forEach((video) => video.pause());
+  demoOpenButton?.focus();
+});
+
+demoVideos.forEach((video) => {
+  video.addEventListener("play", updateDemoPlaybackState);
+  video.addEventListener("pause", updateDemoPlaybackState);
+  video.addEventListener("ended", updateDemoPlaybackState);
+  video.addEventListener("error", () => {
+    if (demoPlayStatus) demoPlayStatus.textContent = "A demo video could not be loaded.";
+  });
+});
+
+demoPlayButton?.addEventListener("click", async () => {
+  if (demoVideos.length === 0) return;
+
+  if (demoVideos.every((video) => !video.paused && !video.ended)) {
+    demoPlaybackRequest += 1;
+    demoVideos.forEach((video) => video.pause());
+    updateDemoPlaybackState();
+    return;
+  }
+
+  const request = ++demoPlaybackRequest;
+  demoVideos.forEach((video) => {
+    if (video.ended) video.currentTime = 0;
+  });
+  const playResults = await Promise.allSettled(demoVideos.map((video) => video.play()));
+  if (!demoDialog?.open) {
+    demoVideos.forEach((video) => video.pause());
+    return;
+  }
+  if (request !== demoPlaybackRequest) return;
+
+  const failedPlay = playResults.some((result) => result.status === "rejected");
+  if (failedPlay) {
+    demoVideos.forEach((video) => video.pause());
+    if (demoPlayStatus) demoPlayStatus.textContent = "Could not play both demos. Try the individual video controls.";
+  } else {
+    updateDemoPlaybackState();
+  }
+});
 
 const experienceDetails = {
   amadeus: {
