@@ -418,3 +418,64 @@ document.addEventListener("keydown", (event) => {
 window.addEventListener("DOMContentLoaded", () => {
   window.lucide?.createIcons();
 });
+
+// Visit analytics (GoatCounter). Everything is guarded so the page never breaks
+// if the analytics script is blocked or fails to load.
+function countEvent(name) {
+  try {
+    if (window.goatcounter && typeof window.goatcounter.count === "function") {
+      window.goatcounter.count({ path: name, title: name, event: true });
+    }
+  } catch (error) {
+    // Analytics must never break the page.
+  }
+}
+
+function eventNameForLink(link) {
+  const href = link.getAttribute("href") || "";
+  if (href.startsWith("mailto:")) return "click-email";
+  if (/\.pdf($|[?#])/i.test(href)) return "click-cv";
+
+  let url;
+  try {
+    url = new URL(href, window.location.href);
+  } catch (error) {
+    return null;
+  }
+
+  if (url.hostname.endsWith("linkedin.com")) return "click-linkedin";
+  if (url.hostname === "github.com") {
+    const path = url.pathname.replace(/\/+$/, "").toLowerCase();
+    if (path === "/funtag02") return "click-github";
+    if (path === "/funtag02/theoos") return "click-theoos-repo";
+  }
+  return null;
+}
+
+function trackLinkClick(event) {
+  const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
+  if (!link) return;
+  const name = eventNameForLink(link);
+  if (name) countEvent(name);
+}
+
+document.addEventListener("click", trackLinkClick);
+document.addEventListener("auxclick", trackLinkClick);
+
+// Remove tracking codes (?ref=..., ?utm_...) from the address bar once the visit
+// has had time to be counted, so a copied URL stays clean.
+window.addEventListener("load", () => {
+  window.setTimeout(() => {
+    try {
+      const url = new URL(window.location.href);
+      const keysToRemove = [...url.searchParams.keys()].filter(
+        (key) => key === "ref" || key.startsWith("utm_"),
+      );
+      if (keysToRemove.length === 0) return;
+      keysToRemove.forEach((key) => url.searchParams.delete(key));
+      window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+    } catch (error) {
+      // Leave the address bar as it is if anything goes wrong.
+    }
+  }, 1500);
+});
